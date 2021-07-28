@@ -1,12 +1,56 @@
-@import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+@import url('https://fonts.googleapis.com/css?family=Unica+One|Vollkorn');
 
 html{
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: burlywood;
-  font-family: 'Raleway', sans-serif;
+  background-color: whitesmoke;
+  font-family: 'Vollkorn';
+  color: bisque;
+}
+
+body{
+  text-align: center;
+}
+
+*, *::before, *::after { box-sizing: border-box }
+header{
+    height: 30vh;
+    margin: 0;
+    padding: 0;
+}
+
+footer{
+    height: 5vh;
+    margin: 0;
+    padding: 0;
+
+}
+
+h1::before,
+h1::after {
+  content: '';
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+h1::before {
+  background: linear-gradient(#e5dcdd,#f6f4f4);
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -2;
+}
+
+h1::after {
+  height: 101%;
+  background: whitesmoke;
+  left: -.1em;
+  right: -.1em;
+  z-index: -1;
 }
 
 h3{
@@ -19,7 +63,7 @@ h4{
     text-align: center;
     color: rgb(201, 173, 138);
     justify-self: center;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Vollkorn';
 }
 
 .cards-container{
@@ -32,16 +76,35 @@ h4{
     row-gap: 5vh;
 }
 
-header{
-    height: 25vh;
-    margin: 0;
-    padding: 0;
+.card{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    width: 30vh;
+    height: 30vh;
+    background-color: rgb(201 187 170);
+    border-radius:  5%;
+    row-gap: 0.5vh;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+    padding-top: 1vh;
 }
 
-footer{
-    height: 5vh;
-    margin: 0;
-    padding: 0;
+.card-item{
+    text-align: center;
+    text-overflow: ellipsis;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+
+.card:hover{
+    transform: scale(1.02);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
+    box-shadow: 0px 0px 2px 2px rgb(151, 146, 146);
+}
+
+.new-book-container{
+    text-align: center;
+    padding-top: 10px;
 }
 
 #add-new-book{
@@ -50,33 +113,112 @@ footer{
     height: 30px;
     width: 100px;
     font-weight: 1000;
-    color: bisque;
+    color: #d5c9bb;
     transition: 0.4s ease-in-out;
-    margin-top: 30px;
+    margin-top: 10px;
+    border: 1px solid black;
 
 }
 
 #add-new-book:hover{
-    transform: scale(0.9);
-    transition: 0.4s ease-in-out;
-    opacity: 0.9;
+    opacity: 0.8;
+    cursor: pointer;
 }
 
-.new-book-container{
-    text-align: center;
-    padding-top: 10px;
-    
+#read-submit-form{
+  display: inline-block;
+  margin-bottom: 20px;
 }
-#library{
+
+
+.library{
     border-bottom: 1px solid;
     padding-bottom: 5px;
-    width: 150px;
-    margin:auto;
+    width: 300px;
     letter-spacing: 0.05em;
     text-align: center;
-    color: bisque;
-    justify-self: center;
+    color: #d5c9bb;
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
 }
-.card-item{
+
+#library::before, #library::after{
+  content: '';
+  height: 100%;
+  display: block;
+ 
+  position: absolute;
+}
+
+#library::before{
+  width: 100%;
+}
+
+#library::after{
+  background: lightcoral;
+  width: 100vh;
+  left: 50%;
+}
+
+
+#submit-book-form{
+    text-align:center;
+    display: none;
+    border: 1px solid;
+    height: 45vh;
+    width: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #d5cabb;
+    border-radius:  5%;
+  }
+
+.form-wrapper{
+    position: absolute;
     text-align: center;
+    top: 30%;
+    left: 40%;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.btn-delete{
+    width: 25vh;
+    height: 4vh;
+    justify-self: center;
+    background-color: #da9797;
+    border: .5px solid black;
+    border-radius: 2%;
+}
+
+
+#btn-submit{
+  background-color: #afc093;
+  width: 25vh;
+  height: 4vh;
+  border: none;
+  border-radius: 2%;
+  font-family: 'Vollkorn';
+  font-size: inherit;
+  border: .5px solid black;
+}
+
+.btn-read{
+    width: 25vh;
+    height: 4vh;
+    justify-self: center;
+    background-color: #e2eee1;
+    border: none;
+    border-radius: 2%;
+    color: black;
+    border: .5px solid black;
+}
+
+.btn-read:hover,
+#btn-submit:hover,
+.btn-delete:hover{
+    opacity: 0.8;
+    border-color: bisque;
+    cursor: pointer;
 }

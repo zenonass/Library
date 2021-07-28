@@ -7,16 +7,26 @@
 <body>
     <link rel="stylesheet" href="style.css">
     <header>
-        <div class="library-container">
-            <h1 id="library">Library</h1>
-        </div>
+        <h1 class="library">LIBRARY</h1>
         <div class="new-book-container">
-            <button id ="add-new-book">Add new</button>
+            <button id ="add-new-book">Add book</button>
         </div>
     </header>
 
     <div class="cards-container">
-
+    </div>
+    <div class="form-wrapper">
+        <form id="submit-book-form">
+            <label for="author">Author</label><br>
+            <input type="text" id="author" name="author" value="" required><br>
+            <label for="title">Title</label><br>
+            <input type="text" id="title" name="title" value="" required><br>
+            <label for="pages">Pages</label><br>
+            <input type="number" id="pages" name="pages" value="" required><br><br>
+            <div id="read-submit-form" class="btn-read">Read</div>
+            <br>
+            <input type="submit" value="Add book" id="btn-submit">
+        </form> 
     </div>
     <footer></footer>
     
